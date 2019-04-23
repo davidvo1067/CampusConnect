@@ -13,7 +13,7 @@ public class School {
     }
 
     public boolean createUser(String userType, String email, String password) {
-        System.out.println("Start creating user....");
+        System.out.println("Register status: ");
         if (findUser(email) == 0) {
             if (userType.equals("Student")) {
                 UserList.add(
@@ -22,12 +22,12 @@ public class School {
                                 .withPassword(password)
                                 .build()
                 );
-                System.out.println("Created Student complete");
+                System.out.println("Created " + email + "  Student complete \n" );
                 return true;
             }
         }
         else {
-
+            System.out.println("User already exist \n" );
             return false;
         }
         return false;
@@ -38,21 +38,26 @@ public class School {
         int userID = findUser(email);
         if (userID != 0L) {
             if (UserList.get(userID-1).getPassword().equals(password)) {
+                System.out.println("Log in success:");
+                System.out.println("--------" + email + "'s profile----");
                 System.out.println(UserList.get(userID-1).toString());
+                System.out.println("--------------------- \n");
                 return userID;
+            }
+            else {
+                System.out.println("Log in failure: wrong password+ \n");
+                return 0;
             }
         }
         else {
-            System.out.println("Log in failure");
+            System.out.println("Log in failure: the email is not exist in the system + \n");
             return 0;
             }
-        return 0;
     }
 
     private int findUser(String email) {
 
         for (CampusConnect.User existUser: UserList) {
-            System.out.print(existUser.getEmail() + " ");
             if (existUser.getEmail().equals(email)) {
                 return existUser.getID();
             }
