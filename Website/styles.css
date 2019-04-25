@@ -35,7 +35,7 @@ input {
 	height: 100%;
 	background-color: #e8e3d3;
 	font-size: 18px;
-	font-family: font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 #sidebar ul {
@@ -58,4 +58,48 @@ input {
 	top: 50px;
 	left: 20%;
 	width: 80%;
+}
+
+/* groups.php */
+#grouplist {
+	font-family: 'Open Sans', sans-serif;
+}
+
+#grouplist h2 {
+	
+	margin: 0;
+	padding: 0;
+	
+}
+
+#grouplist p {
+	margin: 0;
+	padding: 0;
+}
+
+.groupOdd {
+	background-color: #e5e5e5;
+}
+
+.groupEven {
+	margin: 0;
+	padding: 0;
+	background-color: #cccccc;
+}
+
+
+#grouplist ul {
+	display: inline;
+	list-style: none;
+}
+
+#grouplist ul li {
+	float: left;
+	display: inline-block;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+#grouplist ul li:hover {
+	background-color: grey;
 }

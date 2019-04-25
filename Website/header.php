@@ -3,7 +3,6 @@
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico|Material+Icons" rel="stylesheet">
 		<link href="styles.css" rel="stylesheet">
-		<link rel="import" href="profile.html">
 		<title>Campus Connect</title>
 	</head>
 	<body>
