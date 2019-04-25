@@ -1,8 +1,8 @@
 <?php
 function connectToCC() {
 	$DB_HOST = 'vergil.u.washington.edu';
-	$DB_USER = 'root';
-	$DB_PASS = 'frickU2';
+	$DB_USER = 'cc';
+	$DB_PASS = 'ccpassword';
 	$DB_NAME = 'cc';
 	$DB_PORT = 5624;
 	
