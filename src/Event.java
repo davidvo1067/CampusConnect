@@ -98,16 +98,11 @@ public class Event {
     public String toString() {
         String listOfPeople="";
         for (User person: listOfAttedee ) {
-            listOfPeople += " "+ person.getName() + " ";
+            listOfPeople += " "+ person.getName() + ", ";
         }
-        return "Event{" +
-                ", ID=" + ID +
-                "eventName='" + eventName + '\'' +
-                ", date='" + date + '\'' +
-                ", location='" + location + '\'' +
-                ", tag=" + tag +
-                ", list of People: listOfPeople" +
-                '}';
+        return  "ID " +
+                eventName +"at " + location + ' ' + date + "\n" +
+                ", list of People: listOfPeople" + listOfPeople;
 
     }
 }
