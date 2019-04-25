@@ -16,6 +16,8 @@ public class School {
         createUser("Student","Kelly Johnson", "kelly" );
         createUser("Student","Harry", "harry");
         createUser("Student","Yamato", "yamato");
+        createEvent("343 Study Group Study", "5/2/2019","Lib2-305");
+        createEvent("490 Study Group Study", "5/3/2019","Lib-315");
     }
 
     public int createUser(String userType, String email, String password) {
@@ -99,7 +101,9 @@ public class School {
             System.out.println("No Events at current moment.");
         }
         for (Event existEvent : EventList) {
-            System.out.println(existEvent.getEventName());
+            System.out.print(existEvent.getEventName() + " at ");
+            System.out.print(existEvent.getLocation() + " ");
+            System.out.println(existEvent.getDate());
         }
     }
 
