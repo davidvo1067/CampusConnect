@@ -5,6 +5,7 @@ public class Driver {
     public static void main(String[] args) {
 
     	//creates an empty UserList
+        int currentUser = -1;
         School newSchool = new School();
 
         System.out.println("Would you like to login or create a new account?");
@@ -13,18 +14,19 @@ public class Driver {
 
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        String input;
         String email = "random";
-        String password;
+        String password = "";
 
         boolean confirmed = false;
 
 
-        while(!(input.equals("create") || input.equals("login")))
+        do
         {
             System.out.println("Please enter 'create' or 'login'");
             input = scanner.nextLine();
-        }
+        } while (!(input.equals("create") || input.equals("login")));
+
 
         if(input.equals("create")) {
         	input = scanner.nextLine();
@@ -34,11 +36,12 @@ public class Driver {
                 System.out.println("You entered: " + email + ". Is this correct? [Y|N]");
                 input = scanner.nextLine();
 
-                if (!(input.equals("Y") || input.equals("N") || input.equals("yes") || input.equals("no")
-                        || input.equals("y") || input.equals("n"))) {
-                    System.out.println("Please enter 'yes' or 'no'");
+                if (!(input.toUpperCase().equals("Y") || input.toUpperCase().equals("N")
+                    || input.toLowerCase().equals("yes") || input.toLowerCase().equals("no")  )) {
+                    System.out.println("Please enter 'Y' or 'N'");
                 }
-                if (input.equals("yes") || input.equals("y")) {
+
+                if (input.toLowerCase().equals("yes") || input.toLowerCase().equals("y")) {
                     confirmed = true;
                 }
             }
@@ -50,47 +53,66 @@ public class Driver {
                 System.out.println("You entered: " + password + ". Is this correct? [Y|N]");
                 input = scanner.nextLine();
 
-                if (!(input.equals("Y") || input.equals("N") || input.equals("yes") || input.equals("no")
-                        || input.equals("y") || input.equals("n"))) {
-                    System.out.println("Please enter 'yes' or 'no'");
+                if (!(input.toUpperCase().equals("Y") || input.toUpperCase().equals("N")
+                        || input.toLowerCase().equals("yes") || input.toLowerCase().equals("no")  )) {
+                    System.out.println("Please enter 'Y' or 'N'");
                 }
-                if (input.equals("yes") || input.equals("y")) {
+
+                if (input.toLowerCase().equals("yes") || input.toLowerCase().equals("y")) {
                     confirmed = true;
                 }
 
-                newSchool.createUser("Student",email, password);
-                newSchool.login(email, password);
-                System.out.println("Great! You are logged in with your new account!");
             }
+            newSchool.createUser("Student",email, password);
+            newSchool.login(email, password);
+            System.out.println("Great! You are logged in with your new account!");
+            currentUser = newSchool.login(email, password);
         }
         else if(input.equals("login"))
+        do
         {
-            System.out.println("Please enter your email: ");
+            System.out.println("Please enter your email or enter quit to quit:");
             email = scanner.nextLine();
+            if (email.equals("quit")) break;
             System.out.println("Please enter your password: ");
             password = scanner.nextLine();
-            newSchool.login(email, password);
+            currentUser = newSchool.login(email, password);
 
-        }
-        System.out.println("What would you like to do? Enter 'help' for list of options. Enter 'quit' if you would like" +
-                "to exit the program");
-        input = scanner.nextLine();
-        while(!input.equals("quit"))
-        {
-            if(input.equals("help"))
-            {
-                System.out.println("'create event' -- allows you to create a new event.\n" +
-                        "'show events' -- shows a list of upcoming events. \n" +
-                        "'create group' --allows you to create a study group. \n" +
-                        "'see groups -- allows you to see recommended study groups.");
-            }
-            if(input.equals("'create event"))
-            {
+        } while (currentUser < 1 || email == "quit");
 
+
+        if (currentUser > 0 ) {
+
+            while(!input.equals("quit")) {
+                System.out.println("What would you like to do? Enter 'help' for list of options. Enter 'quit' if you would like" +
+                        "to exit the program");
+                input = scanner.nextLine();
+                if(input.equals("help")) {
+                    System.out.println("'create event' -- allows you to create a new event.\n" +
+                            "'show events' -- shows a list of upcoming events. \n" +
+                            "'create group' --allows you to create a study group.");
+                }
+                if(input.equals("create event")) {
+                    System.out.println("Please enter the event name: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Please enter the event date: ");
+                    String date = scanner.nextLine();
+                    System.out.println("Please enter the event location: ");
+                    String location = scanner.nextLine();
+                    int status = newSchool.createEvent(name,date,location);
+                    if (status == 0) System.out.println("Event already exist");
+                    else {
+                        //System.out.println("Your event is created. Here is the information:");
+                        //System.out.println(EventList[status]);
+                    }
+                }
+                if(input.equals("show events")) {
+                    newSchool.displayEvent();
+                }
             }
-            input = scanner.next();
         }
-//        //createUser called in the School.java
+
+//        //createUser called in the School.javav
 //        newSchool.createUser("Student","John", "nopassword" );
 //        newSchool.login("John","nopassword");
 //        newSchool.createUser("Student","Kelly Johnson", "kelly" );

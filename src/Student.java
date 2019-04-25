@@ -1,6 +1,6 @@
-import CampusConnect.User;
 
-public class Student extends CampusConnect.User {
+
+public class Student extends User {
     public static String userType = "Student";
     private int studentID;
     private String major;
@@ -46,7 +46,7 @@ public class Student extends CampusConnect.User {
             return this;
         }
 
-        public Student build(){
+        public User build(){
             Student account = new Student();
             account.ID = this.ID;
             account.name = this.name;
