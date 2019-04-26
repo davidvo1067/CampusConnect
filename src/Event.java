@@ -2,7 +2,9 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*This public class creates and stores events. It contains a builder that builds the actual event with a set of
+methods that allow for the addition of specific information.
+ */
 public class Event {
     private String eventName;
     private String date;
@@ -12,6 +14,7 @@ public class Event {
     private int ID;
     //private CampusConnect.User Creator;
 
+    //default constructor.
     private Event () {
         tag = new ArrayList();
         tag.add("Study");
@@ -62,34 +65,42 @@ public class Event {
         return true;
     }
 
+    //returns the name of the event as a string
     public String getEventName() {
         return eventName;
     }
 
+    //sets the name of the event to a string
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
 
+    //returns the date as a string
     public String getDate() {
         return date;
     }
 
+    //sets the date to a string
     public void setDate(String date) {
         this.date = date;
     }
 
+    //returns the location of an event as a string
     public String getLocation() {
         return location;
     }
 
+    //sets the location of an event to a string
     public void setLocation(String location) {
         this.location = location;
     }
 
+    //returns the ID of an event as an int
     public int getID() {
         return ID;
     }
 
+    //sets the ID of an event to an int
     public void setID(int ID) {
         this.ID = ID;
     }

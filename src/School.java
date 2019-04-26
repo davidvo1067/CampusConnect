@@ -3,34 +3,47 @@ import java.util.List;
 
 import static java.sql.DriverManager.println;
 
+/*School class is used here as a general catch-all for all of the entities that exist within a school.
+This includes the creation and logging-in of users, finding users, creating events, finding events, and displaying
+events.
+ */
 public class School {
+    //userCounter keeps track of the user's ID, which is determined based on the order that the users are created
     public int userCounter = 0;
+    //eventCoutner keeps track of the event's ID, which is determined based on the order that the events are created
     public int eventCounter = 0;
+    //UserList stores the
     private List<User> UserList;
     private List<Event> EventList;
 
+    //default constructor. initializes new lists for users
     public School() {
+        //initiallizes a new empty userlist
         UserList = new ArrayList();
+        //initializes a new empty eventlist
         EventList = new ArrayList();
-        createUser("Student","John", "nopassword" );
-        createUser("Student","Kelly Johnson", "kelly" );
-        createUser("Student","Harry", "harry");
-        createUser("Student","Yamato", "yamato");
-        createEvent("343 Study Group Study", "5/2/2019","Lib2-305");
-        createEvent("490 Study Group Study", "5/3/2019","Lib-315");
+//        createUser("Student","John", "nopassword" );
+//        createUser("Student","Kelly Johnson", "kelly" );
+//        createUser("Student","Harry", "harry");
+//        createUser("Student","Yamato", "yamato");
+//        createEvent("343 Study Group Study", "5/2/2019","Lib2-305");
+//        createEvent("490 Study Group Study", "5/3/2019","Lib-315");
     }
 
-    public int createUser(String userType, String email, String password) {
+    //creates a new user based on their usertype. Includes their name, email, and password
+    public int createUser(String userType, String name, String email, String password) {
         System.out.println("Register status: ");
         int userID = findUser(email);
         if (userID == 0) {
             if (userType.equals("Student")) {
                 UserList.add(
                         new Student.Builder(++userCounter)
+                                .withName(name)
                                 .withEmail(email)
                                 .withPassword(password)
                                 .build()
                 );
+
                 System.out.println("Created " + email + "  Student complete \n");
                 return userID ;
             }
@@ -41,6 +54,7 @@ public class School {
         return 0;
     }
 
+    //logs in a user. Checks to see if their email and password combination is valid
     public int login(String email, String password) {
         System.out.println("Start login process");
         int userID = findUser(email);
@@ -60,7 +74,7 @@ public class School {
             return 0;
         }
     }
-
+    //checks to see if a user already exists in the UserList
     private int findUser(String email) {
 
         for (User existUser : UserList) {
@@ -71,6 +85,7 @@ public class School {
         return 0;
     }
 
+    //creates a new event using the event builder.
     public int createEvent(String name, String date, String location) {
         int eventID = findEvent(name);
         if (eventID== 0) {
@@ -86,16 +101,17 @@ public class School {
         else return 0;
     }
 
-
+    //finds and returns an event ID based on the event name
     private int findEvent(String name) {
-        for (Event existEvent : EventList) {
-            if (existEvent.getEventName().equals(name)) {
-                return existEvent.getID();
+        for (Event existingEvent : EventList) {
+            if (existingEvent.getEventName().equals(name)) {
+                return existingEvent.getID();
             }
         }
         return 0;
     }
 
+    //displays an event in the form "<eventName> at <location> <date>"
     public void displayEvent() {
         if (EventList.isEmpty()) {
             System.out.println("No Events at current moment.");

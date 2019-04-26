@@ -1,36 +1,64 @@
 import java.util.Scanner;
 
+
+/*This is the driver file. It first asks the user to either login or create an account. If the user decides
+to create an account, they are automatically logged in. After that, the user can decide to create events, search for
+events, or create a study group. We are working on getting it hooked up to the website that we created using php.
+ */
 public class Driver {
-	
+
+    //start program
     public static void main(String[] args) {
 
-    	//creates an empty UserList
         int currentUser = -1;
+
+        //creates an empty UserList
         School newSchool = new School();
 
+        //Prompt for creating or logging into an account.
         System.out.println("Would you like to login or create a new account?");
         System.out.println("If you would like to login, please type 'login'");
         System.out.println("If you would like to create a new account, please type 'create'");
 
         Scanner scanner = new Scanner(System.in);
 
-        String input;
+        String input = scanner.nextLine();
         String email = "random";
         String password = "";
+        String name = "";
 
+        //confirmation for creating the username and password
         boolean confirmed = false;
 
-
-        do
+        while (!(input.equals("create") || input.equals("login")))
         {
             System.out.println("Please enter 'create' or 'login'");
             input = scanner.nextLine();
-        } while (!(input.equals("create") || input.equals("login")));
+        };
 
-
+        //creating a new user account
         if(input.equals("create")) {
         	input = scanner.nextLine();
-        	while(!confirmed) {
+        	//for creating and confirming name
+            while(!confirmed) {
+                System.out.println("Please enter your name: ");
+                name = scanner.nextLine();
+                System.out.println("You entered: " + name + ". Is this correct? [Y|N]");
+                input = scanner.nextLine();
+
+                if (!(input.toUpperCase().equals("Y") || input.toUpperCase().equals("N")
+                        || input.toLowerCase().equals("yes") || input.toLowerCase().equals("no")  )) {
+                    System.out.println("Please enter 'Y' or 'N'");
+                }
+
+                if (input.toLowerCase().equals("yes") || input.toLowerCase().equals("y")) {
+                    confirmed = true;
+                }
+            }
+
+            confirmed = false;//reset confirmed
+            //for creating and confirming email
+            while(!confirmed) {
                 System.out.println("Please enter your email: ");
                 email = scanner.nextLine();
                 System.out.println("You entered: " + email + ". Is this correct? [Y|N]");
@@ -45,8 +73,10 @@ public class Driver {
                     confirmed = true;
                 }
             }
+
         	confirmed = false;
 
+        	//for creating and confirming password
             while(!confirmed) {
                 System.out.println("Please enter your password: ");
                 password = scanner.nextLine();
@@ -63,10 +93,12 @@ public class Driver {
                 }
 
             }
-            newSchool.createUser("Student",email, password);
-            newSchool.login(email, password);
-            System.out.println("Great! You are logged in with your new account!");
+
+            //calls the createUser method from within the School class
+            newSchool.createUser("Student",name, email, password);
+            //logs in the new user
             currentUser = newSchool.login(email, password);
+            System.out.println("Great! You are logged in with your new account!");
         }
         else if(input.equals("login"))
         do
@@ -94,12 +126,12 @@ public class Driver {
                 }
                 if(input.equals("create event")) {
                     System.out.println("Please enter the event name: ");
-                    String name = scanner.nextLine();
+                    String eventName = scanner.nextLine();
                     System.out.println("Please enter the event date: ");
                     String date = scanner.nextLine();
                     System.out.println("Please enter the event location: ");
                     String location = scanner.nextLine();
-                    int status = newSchool.createEvent(name,date,location);
+                    int status = newSchool.createEvent(eventName,date,location);
                     if (status == 0) System.out.println("Event already exist");
                     else {
                         //System.out.println("Your event is created. Here is the information:");
