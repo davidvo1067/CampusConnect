@@ -3,7 +3,18 @@ session_start();
 include_once 'ccfunctions.php';
 include 'header.php';
 
-$bioid = (isset($_POST['profileid'])?: $_SESSION['userid'];
+if(isset($_SESSION['userid'])) {
+	$name;
+	$major;
+	$bio;
+	/*
+	if (isset($_POST['profileid']) {
+	
+	
+	} else {
+		
+	}*/
+}
 ?>
 			<div id="profile">
 				<div id="about">

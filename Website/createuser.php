@@ -7,9 +7,6 @@ if (!isset($_POST['email'])) {
 
 include 'dbvar.php';
 
-
-//session_start();
-
 $cc = connectToCC();
 if($cc -> connect_error){
    echo "Not connected, error: ".$cc -> connect_error;

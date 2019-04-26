@@ -8,6 +8,14 @@
 	<body>
 		<div id="register">
 			<h1> Campus Connect!</h1>
+			// <?php 
+				// session_start();
+				// if (isset($_SESSION['userid'])) {
+					// echo "<script>
+						// document.getElementById('register').innerHTML = 'Please Log Out.';
+					// </script>";
+				// }
+			// ?>
 			<form action="createuser.php" method="post">
 			
 				<label for="email">Email: </label>

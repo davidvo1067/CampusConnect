@@ -1,12 +1,4 @@
 <?php
-
-$USER_ID = 0;
-$STUDENT_ID = 1;
-$NAME = 2;
-$EMAIL = 3;
-$PASSWORD = 4;
-$MAJOR = 5;
-
 function connectToCC() {
 	$DB_HOST = 'vergil.u.washington.edu';
 	$DB_USER = 'cc';
