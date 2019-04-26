@@ -1,0 +1,35 @@
+body {
+	background-color: #e8e3d3;
+}
+
+#register {
+	position: fixed;
+	top: 15%;
+	left: 30%;
+	height: 70%;
+	width: 40%;
+	background-color: #4b2e83;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 30px;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	padding:0;
+	margin: 10px;
+	font-size: 5vw;
+}
+
+form {
+	position: relative;
+	left: 5%;
+}
+
+input {
+	display: block;
+	width: 90%;
+	margin-bottom: 10px;
+	color: black;
+}

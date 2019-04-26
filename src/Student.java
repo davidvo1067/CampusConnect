@@ -1,14 +1,18 @@
 
-
+/*Student class is a child of the abstract User class. This class also includes the student builder,
+which facilitates the creation of new student
+ */
 public class Student extends User {
     public static String userType = "Student";
     private int studentID;
     private String major;
 
 
+    //default constructor
     private Student() {
     }
 
+    //builder for student.
     public static class Builder {
         private String name;
         private int ID;
@@ -46,6 +50,7 @@ public class Student extends User {
             return this;
         }
 
+        //creates the new student
         public User build(){
             Student account = new Student();
             account.ID = this.ID;
@@ -58,14 +63,16 @@ public class Student extends User {
         }
     }
 
+    //returns the student's ID # as an int
     public int getStudentID() {
         return studentID;
     }
-
+    //sets the student's ID # to an int
     public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
+    //overrides the toString() method
     @java.lang.Override
     public java.lang.String toString() {
         return  userType +
