@@ -6,8 +6,8 @@ class Main{
 	public static void main(String args[]){  
 		try{
 			String url = "jdbc:mysql://vergil.u.washington.edu:5624/cc";
-			String user = "root"; //plz don't abuse
-			String pass = "frickU2";
+			String user = "cc"; //plz don't abuse
+			String pass = "ccpassword";
 			
 			String sqlinsertTestTable = "INSERT INTO test (columnA, columnC) VALUES('banana', 'notabanana')";
 			String sqlSelectAllTestTable = "SELECT * FROM user;";

@@ -1,5 +1,10 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include_once 'ccfunctions.php';
+include 'header.php';
 
+$bioid = (isset($_POST['profileid'])?: $_SESSION['userid'];
+?>
 			<div id="profile">
 				<div id="about">
 					<div id="pic">
@@ -9,9 +14,9 @@
 						</div>
 					</div>
 					<div id="summary">
-						<h1>Anon Ymous</h1>
-						<p>Batchelors of Wizardry, 1997</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non ex quis augue imperdiet tempor. Mauris fermentum malesuada elit, quis aliquet enim dictum quis. Ut sit amet ex sit amet nisl aliquam fringilla. Ut eget sagittis massa, vitae consequat nibh. In hac habitasse platea dictumst. Donec in turpis eget enim imperdiet maximus. Nullam fermentum quis leo in aliquam. Mauris ut sem viverra, volutpat nibh sit amet, aliquam enim. Aenean turpis urna, mattis id ligula eu, varius laoreet augue. Aliquam quis condimentum justo, sit amet efficitur nunc. Cras id ex mauris. Nullam tristique nulla sit amet nisi aliquet pulvinar. Ut tincidunt lacus eu urna mattis, id feugiat tellus euismod. Proin iaculis nisi non justo convallis, ut varius enim pellentesque.</p>
+						<h1><?= $_SESSION['name']; ?></h1>
+						<p><?= $_SESSION['major']; ?></p>
+						<p><?= getBio($_SESSION['userid']); ?></p>
 					</div>
 				</div>
 				<div id="feed">

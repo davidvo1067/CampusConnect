@@ -58,13 +58,10 @@ input {
 	top: 50px;
 	left: 20%;
 	width: 80%;
-}
-
-/* groups.php */
-#grouplist {
 	font-family: 'Open Sans', sans-serif;
 }
 
+/* groups.php */
 #grouplist h2 {
 	
 	margin: 0;

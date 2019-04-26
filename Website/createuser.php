@@ -2,7 +2,7 @@
 
 if (!isset($_POST['email'])) {
 	echo "No data";
-	exit;
+	exit();
 } 
 
 include 'dbvar.php';
@@ -13,14 +13,14 @@ include 'dbvar.php';
 $cc = connectToCC();
 if($cc -> connect_error){
    echo "Not connected, error: ".$cc -> connect_error;
-   exit;
+   exit();
 }
 
 $email =$_POST['email'];
-$pass = $_POST['password'];
+$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $studentid = $_POST['studentid'];
 $name = $_POST['name'];
-$major = $_POST['major'];
+$major = isset($_POST['major']) ? $_POST['major'] : NULL;
 
 $insertsql = "INSERT INTO user (studentid, name, email, password, major)
 VALUES ($studentid, '$name', '$email', '$pass', '$major');";
@@ -28,12 +28,11 @@ VALUES ($studentid, '$name', '$email', '$pass', '$major');";
 if ($cc -> query($insertsql) == FALSE) {
 	echo "Error: " . $insertsql . "<br>" . $cc -> error;
 	$cc -> close();
-	exit;
+	exit();
 }
-
-echo "now we gotta do session start stuff";
-
 
 $cc -> close();
 
+header("Location: login.php");
+exit();
 ?>

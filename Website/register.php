@@ -23,7 +23,7 @@
 				<input type="text" name="name" placeholder="Hermione Grancer" required>
 				
 				<label for="major">Major: </label>
-				<input type="text" name="major" placeholder="Undeclared" required>
+				<input type="text" name="major" placeholder="Undeclared">
 				
 				<button type="submit">Register</button>
 			</form>
