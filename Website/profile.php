@@ -1,19 +1,26 @@
 <?php 
 session_start();
-include_once 'ccfunctions.php';
+include_once 'dbvar.php';
 include 'header.php';
 
-if(isset($_SESSION['userid'])) {
-	$name;
-	$major;
-	$bio;
-	/*
-	if (isset($_POST['profileid']) {
+$name;
+$email;
+$major;
+$bio;
+
+if (isset($_POST['profileid'])) {
+	$userinfo = getUserRowFromSelector($cc, "userid", $_['userid']);
 	
+	$name = $userinfo[$NAME];
+	$email = $userinfo[$NAME];
+	$major = $userinfo[$MAJOR];
+	$bio = $userinfo[$BIO];
 	
-	} else {
-		
-	}*/
+} else {
+	$name = $_SESSION['name'];
+	$email = $_SESSION['email'];
+	$major = $_SESSION['major'];
+	$bio = $_SESSION['bio'];
 }
 ?>
 			<div id="profile">
@@ -25,9 +32,15 @@ if(isset($_SESSION['userid'])) {
 						</div>
 					</div>
 					<div id="summary">
-						<h1><?= $_SESSION['name']; ?></h1>
-						<p><?= $_SESSION['major']; ?></p>
-						<p><?= getBio($_SESSION['userid']); ?></p>
+						<h1><?= $name; ?></h1>
+						<p><?= $major; ?></p>
+						<p><?= $bio; ?></p>
+						<?php if (!isset($_POST['profileid'])) {
+								echo "<form action='editProfile.php'>
+									  <button type='submit'>Edit Profile</button>
+									  </form>";
+							}
+						?>
 					</div>
 				</div>
 				<div id="feed">
