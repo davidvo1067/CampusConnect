@@ -137,17 +137,19 @@ public class School {
     }
 
     public boolean joinEvent(int userIndex,int eventIndex) {
-        UserList.get(userIndex).addEvent(EventList.get(eventIndex));
-        EventList.get(eventIndex).addAttendee(UserList.get(userIndex));
+        if (userIndex < 0 || userIndex >= userCounter ||
+        eventIndex<0 || eventCounter >= eventCounter) return false;
+        UserList.get(userIndex-1).addEvent(EventList.get(eventIndex-1));
+        EventList.get(eventIndex-1).addAttendee(UserList.get(userIndex-1));
         return true;
     }
 
     public User findUser(int index) {
-        return UserList.get(index);
+        return UserList.get(index-1);
     }
 
     public Event findEvent(int index) {
-        return EventList.get(index);
+        return EventList.get(index-1);
     }
 }
 

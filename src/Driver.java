@@ -158,6 +158,9 @@ public class Driver {
                         System.out.println(newSchool.findUser(currentUser).getEmail() + "joined event " +
                                 newSchool.findEvent(eventID).getEventName());
                     }
+                    else {
+                        System.out.println("Error in joining the event.");
+                    }
 
 
                 }
