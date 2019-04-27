@@ -10,11 +10,13 @@ public abstract class User {
     protected String email;
     protected String password;
 
-    //protected List<Event> eventList;
+    protected List<Event> eventList;
     //protected List<Group> groupList;
 
     //default constructor
-    public User() {}
+    public User() {
+        eventList = new ArrayList();
+    }
 
     //returns the name of the user as a string
     public String getName() {
@@ -54,6 +56,11 @@ public abstract class User {
     //sets the password of a user to a string
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean addEvent(Event event) {
+        eventList.add(event);
+        return true;
     }
 
 /*    //public List<Event> getEventList() { return eventList; }

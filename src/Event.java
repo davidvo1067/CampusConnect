@@ -17,6 +17,7 @@ public class Event {
     //default constructor.
     private Event () {
         tag = new ArrayList();
+        listOfAttedee = new ArrayList();
         tag.add("Study");
     }
     public static class Builder {
@@ -61,7 +62,7 @@ public class Event {
     }
 
     public boolean addAttendee(User attendee) {
-        listOfAttedee.add (attendee);
+        listOfAttedee.add(attendee);
         return true;
     }
 
@@ -104,6 +105,7 @@ public class Event {
     public void setID(int ID) {
         this.ID = ID;
     }
+
 
     @Override
     public String toString() {

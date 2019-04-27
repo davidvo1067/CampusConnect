@@ -26,6 +26,7 @@ public class Driver {
         String email = "random";
         String password = "";
         String name = "";
+        String userType = "";
 
         //confirmation for creating the username and password
         boolean confirmed = false;
@@ -38,7 +39,15 @@ public class Driver {
 
         //creating a new user account
         if(input.equals("create")) {
-        	input = scanner.nextLine();
+
+            System.out.println("Are you a student or a professor?");
+            input = scanner.nextLine();
+            while (!(input.toLowerCase().equals("student") || input.toLowerCase().equals("professor")))
+            {
+                System.out.println("Please enter 'student' or 'professor'");
+                input = scanner.nextLine();
+            };
+            userType = input;
         	//for creating and confirming name
             while(!confirmed) {
                 System.out.println("Please enter your name: ");
@@ -95,7 +104,7 @@ public class Driver {
             }
 
             //calls the createUser method from within the School class
-            newSchool.createUser("Student",name, email, password);
+            newSchool.createUser(userType,name, email, password);
             //logs in the new user
             currentUser = newSchool.login(email, password);
             System.out.println("Great! You are logged in with your new account!");
@@ -117,12 +126,12 @@ public class Driver {
 
             while(!input.equals("quit")) {
                 System.out.println("What would you like to do? Enter 'help' for list of options. Enter 'quit' if you would like" +
-                        "to exit the program");
+                        " to exit the program");
                 input = scanner.nextLine();
                 if(input.equals("help")) {
                     System.out.println("'create event' -- allows you to create a new event.\n" +
                             "'show events' -- shows a list of upcoming events. \n" +
-                            "'create group' --allows you to create a study group.");
+                            "'join event (event name)' --allows you to join an event with the event ID");
                 }
                 if(input.equals("create event")) {
                     System.out.println("Please enter the event name: ");
@@ -141,6 +150,19 @@ public class Driver {
                 if(input.equals("show events")) {
                     newSchool.displayEvent();
                 }
+                if (input.equals("join events")) {
+                    System.out.println("Please enter the event ID to join ");
+                    input = scanner.nextLine();
+                    int eventID = Integer.parseInt(input);
+                    if (newSchool.joinEvent(currentUser,eventID)) {
+                    }
+                    else {
+                        System.out.println("Error in joining the event.");
+                    }
+
+
+                }
+
             }
         }
 
