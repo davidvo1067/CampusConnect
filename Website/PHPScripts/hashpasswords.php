@@ -1,4 +1,5 @@
 <?php
+//hashes passwords to make life easier while the users are fake-fake
 
 exit();//prevent rehash
 

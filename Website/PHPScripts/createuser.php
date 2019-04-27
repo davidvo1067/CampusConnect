@@ -1,4 +1,5 @@
 <?php
+//verifies new user gave good info and then registers new user if so
 
 if (!isset($_POST['email'])) {
 	echo "No data";
@@ -30,6 +31,6 @@ if ($cc -> query($insertsql) == FALSE) {
 
 $cc -> close();
 
-header("Location: login.php");
+header("Location: ../Content/login.php");
 exit();
 ?>

@@ -1,14 +1,14 @@
-<?php include 'header.php';
-
+<?php include '../Formatting/header.php'; 
+//Eventually will grab all groups that the user is part of and display them with links to group pages
 $groupname = array("yolo group", "potato group", "whatever group", "whoops not a group", "pretend group");
 $type = array("not for studying", "for studying", "not for studying", "not for studying", "for studying");
-$description = array("a swiggety swaggy group", "woiefljdlkjweojiofjsdlkdg", "a longass dolor paragraph", "mysterious ticking noise transcript", "a fifth group's description");
+$description = array("a swiggety swaggy group", "woiefljdlkjweojiofjsdlkdg", "a long dolor paragraph", "mysterious ticking noise transcript", "a fifth group's description");
 $taglists = array(
 	array("best", "hydrate820", "noturmumsstudygroup"),
 	array("best", "hydrate820", "noturmumsstudygroup", "a fourth tag"),
 	array("best", "hydrate820", "noturmumsstudygroup"),
-	array("best", "hydrate820", "noturmumsstudygroup"),
-	array("best", "hydrate820", "noturmumsstudygroup")
+	array("best", "hydrate820"),
+	array("best", "hydrate820", "noturmumsstudygroup", "whoops i almost turned something in with swear words")
 );
 
 $ab = array("groupOdd", "groupEven");
@@ -28,4 +28,4 @@ for ($i = 0; $i < $groupnum; $i++) {
 	echo "</div>\n";
 }
 echo "</div>\n";
-include 'footer.php'; ?>
+include '../Formatting/footer.php'; ?>

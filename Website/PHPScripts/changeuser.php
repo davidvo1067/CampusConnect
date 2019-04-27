@@ -1,4 +1,6 @@
 <?php
+//given the correct password, updates database on user with user-given info
+
 if (session_status() != PHP_SESSION_ACTIVE) {
 	session_start();
 }
@@ -34,6 +36,6 @@ for ($i = 0; $i < count($fields); $i++) {
 
 $cc -> close();
 
-header('Location: profile.php');
+header('Location: ../Content/profile.php');
 exit();
 ?>

@@ -1,18 +1,18 @@
 <?php 
 session_start();
-include_once 'dbvar.php';
-include 'header.php';
+include_once '../PHPScripts/dbvar.php';
+include '../Formatting/header.php';
 ?>
 			<div id="profile">
 				<div id="about">
 					<div id="pic">
 						<img>
 						<div id="quick-icons">
-							<img class="profile-pic" src="harryProfile.jpg" alt="Profile picture" height="200px" width="200px">
+							<img class="profile-pic" src="../Pictures/harryProfile.jpg" alt="Profile picture" height="200px" width="200px">
 						</div>
 					</div>
 					<div id="edit">
-						<form action="changeuser.php" method="post">
+						<form action="../PHPScripts/changeuser.php" method="post">
 							<table>
 								<tr>
 									<td><label for="oldpassword">Old Password (Required): </label></td>
@@ -45,4 +45,4 @@ include 'header.php';
 					</div>
 				</div>
 			</div>
-<?php include 'footer.php'; ?>
+<?php include '../Formatting/footer.php'; ?>

@@ -1,12 +1,13 @@
+/* style sheet for register page */
 body {
 	background-color: #e8e3d3;
 }
 
-#login {
+#register {
 	position: fixed;
-	top: 30%;
+	top: 15%;
 	left: 30%;
-	height: 40%;
+	height: 70%;
 	width: 40%;
 	background-color: #4b2e83;
 	color: white;

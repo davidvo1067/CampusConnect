@@ -1,4 +1,5 @@
 <?php
+//stores helper functions related to sql database and array index constants
 
 $USER_ID = 0;
 $STUDENT_ID = 1;
@@ -9,11 +10,11 @@ $MAJOR = 5;
 $BIO = 6;
 
 function connectToCC() {
-	$DB_HOST = 'vergil.u.washington.edu';
-	$DB_USER = 'cc';
+	$DB_HOST = 'localhost';
+	$DB_USER = 'id9426588_cc';
 	$DB_PASS = 'ccpassword';
-	$DB_NAME = 'cc';
-	$DB_PORT = 5624;
+	$DB_NAME = 'id9426588_cc';
+	$DB_PORT = 3306;
 	$cc = new MySQLi($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME, $DB_PORT);
 	if ( mysqli_connect_errno() ) {
 	   echo "Not connected, error: ".$cc -> connect_error;

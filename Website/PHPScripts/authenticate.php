@@ -1,4 +1,5 @@
 <?php
+//verifies that user put in write info for login and then logs in if correct
 if ( !isset($_POST['email'], $_POST['password']) ) {
 	echo "Error: No email or username.";
 	exit;
@@ -28,10 +29,10 @@ $_SESSION['studentid'] = $userinfo[$STUDENT_ID];
 $_SESSION['name'] = $userinfo[$NAME];
 $_SESSION['email'] = $userinfo[$EMAIL];
 $_SESSION['major'] = $userinfo[$MAJOR];
-$_SESSION['bio'] = $userinfo[$bio];
+$_SESSION['bio'] = $userinfo[$BIO];
 
 $cc -> close();
-header("Location: profile.php");
+header("Location: ../Content/profile.php");
 die();
 
 ?>

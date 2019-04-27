@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+<!-- lets user create account with campus connect -->
 <html>
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico|Material+Icons" rel="stylesheet">
-		<link href="register-styles.css" rel="stylesheet">
+		<link href="../Formatting/register-styles.css" rel="stylesheet">
 		<title>Campus Connect</title>
 	</head>
 	<body>
 		<div id="register">
 			<h1> Campus Connect!</h1>
 			
-			<form action="createuser.php" method="post">
+			<form action="../PHPScripts/createuser.php" method="post">
 			
 				<label for="email">Email: </label>
 				<input type="email" name="email" placeholder="abc@uw.edu" required>
