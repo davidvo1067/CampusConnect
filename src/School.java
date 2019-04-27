@@ -141,5 +141,13 @@ public class School {
         EventList.get(eventIndex).addAttendee(UserList.get(userIndex));
         return true;
     }
+
+    public User findUser(int index) {
+        return UserList.get(index);
+    }
+
+    public Event findEvent(int index) {
+        return EventList.get(index);
+    }
 }
 

@@ -23,8 +23,6 @@ input {
 	margin-top: 10px;
 	vertical-align: top;
 	height: 25px;
-	
-	
 }
 
 #sidebar {
@@ -99,4 +97,15 @@ input {
 
 #grouplist ul li:hover {
 	background-color: grey;
+}
+
+/* edit profile */
+td {
+	vertical-align: top;
+	text-align: right;
+}
+
+textarea {
+	width: 100%;
+	resize: vertical;
 }

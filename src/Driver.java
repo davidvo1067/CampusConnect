@@ -131,7 +131,7 @@ public class Driver {
                 if(input.equals("help")) {
                     System.out.println("'create event' -- allows you to create a new event.\n" +
                             "'show events' -- shows a list of upcoming events. \n" +
-                            "'join event (event name)' --allows you to join an event.");
+                            "'join event (event name)' --allows you to join an event with the event ID");
                 }
                 if(input.equals("create event")) {
                     System.out.println("Please enter the event name: ");
@@ -149,6 +149,17 @@ public class Driver {
                 }
                 if(input.equals("show events")) {
                     newSchool.displayEvent();
+                }
+                if (input.equals("join events")) {
+                    System.out.println("Please enter the event ID to join ");
+                    input = scanner.nextLine();
+                    int eventID = Integer.parseInt(input);
+                    if (newSchool.joinEvent(currentUser,eventID)) {
+                        System.out.println(newSchool.findUser(currentUser).getEmail() + "joined event " +
+                                newSchool.findEvent(eventID).getEventName());
+                    }
+
+
                 }
 
             }
