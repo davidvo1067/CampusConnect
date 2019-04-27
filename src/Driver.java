@@ -155,8 +155,6 @@ public class Driver {
                     input = scanner.nextLine();
                     int eventID = Integer.parseInt(input);
                     if (newSchool.joinEvent(currentUser,eventID)) {
-                        System.out.println(newSchool.findUser(currentUser).getEmail() + "joined event " +
-                                newSchool.findEvent(eventID).getEventName());
                     }
                     else {
                         System.out.println("Error in joining the event.");

@@ -137,10 +137,14 @@ public class School {
     }
 
     public boolean joinEvent(int userIndex,int eventIndex) {
-        if (userIndex < 0 || userIndex >= userCounter ||
-        eventIndex<0 || eventCounter >= eventCounter) return false;
-        UserList.get(userIndex-1).addEvent(EventList.get(eventIndex-1));
-        EventList.get(eventIndex-1).addAttendee(UserList.get(userIndex-1));
+        if (userIndex < 1 || userIndex > userCounter ||
+        eventIndex<1 || eventCounter > eventCounter) return false;
+        User user = findUser(userIndex);
+        Event event = findEvent(userIndex);
+        user.addEvent(event);
+        event.addAttendee(user);
+        System.out.println(user.getEmail() + "joined event " +
+                event.getEventName());
         return true;
     }
 
