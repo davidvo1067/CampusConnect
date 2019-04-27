@@ -8,6 +8,7 @@
 	<body>
 		<div id="register">
 			<h1> Campus Connect!</h1>
+			
 			<form action="createuser.php" method="post">
 			
 				<label for="email">Email: </label>
