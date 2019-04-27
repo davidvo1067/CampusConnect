@@ -122,18 +122,24 @@ public class School {
         return 0;
     }
 
+
     //displays an event in the form "<eventName> at <location> <date>"
     public void displayEvent() {
         if (EventList.isEmpty()) {
             System.out.println("No Events at current moment.");
         }
         for (Event existEvent : EventList) {
+            System.out.print(existEvent.getID() + " ");
             System.out.print(existEvent.getEventName() + " at ");
             System.out.print(existEvent.getLocation() + " ");
             System.out.println(existEvent.getDate());
         }
     }
 
-
+    public boolean joinEvent(int userIndex,int eventIndex) {
+        UserList.get(userIndex).addEvent(EventList.get(eventIndex));
+        EventList.get(eventIndex).addAttendee(UserList.get(userIndex));
+        return true;
+    }
 }
 

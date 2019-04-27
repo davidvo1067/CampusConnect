@@ -10,7 +10,7 @@ public abstract class User {
     protected String email;
     protected String password;
 
-    //protected List<Event> eventList;
+    protected List<Event> eventList;
     //protected List<Group> groupList;
 
     //default constructor
@@ -54,6 +54,10 @@ public abstract class User {
     //sets the password of a user to a string
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void addEvent(Event event) {
+        eventList.add(event);
     }
 
 /*    //public List<Event> getEventList() { return eventList; }
