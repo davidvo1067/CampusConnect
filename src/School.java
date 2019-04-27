@@ -22,12 +22,12 @@ public class School {
         UserList = new ArrayList();
         //initializes a new empty eventlist
         EventList = new ArrayList();
-//        createUser("Student","John", "nopassword" );
-//        createUser("Student","Kelly Johnson", "kelly" );
-//        createUser("Student","Harry", "harry");
-//        createUser("Student","Yamato", "yamato");
-//        createEvent("343 Study Group Study", "5/2/2019","Lib2-305");
-//        createEvent("490 Study Group Study", "5/3/2019","Lib-315");
+        createUser("Student","John", "john@john.com", "nopassword");
+        createUser("Student","Kelly Johnson", "whatAmIeatingToday@today.com", "kelly" );
+        createUser("Student","Harry", "harry@harryIsCool.com", "harry");
+        createUser("Student","Yamato", "yamato@yamoto.com", "yamoto");
+        createEvent("343 Study Group Study", "5/2/2019","Lib2-305");
+        createEvent("490 Study Group Study", "5/3/2019","Lib-315");
     }
 
     //creates a new user based on their usertype. Includes their name, email, and password
@@ -35,7 +35,7 @@ public class School {
         System.out.println("Register status: ");
         int userID = findUser(email);
         if (userID == 0) {
-            if (userType.equals("Student")) {
+            if (userType.toLowerCase().equals("student")) {
                 UserList.add(
                         new Student.Builder(++userCounter)
                                 .withName(name)
@@ -47,8 +47,19 @@ public class School {
                 System.out.println("Created " + email + "  Student complete \n");
                 return userID ;
             }
+
+            if(userType.toLowerCase().equals("professor"))
+            {
+                UserList.add(
+                        new Professor.Builder(++userCounter)
+                                .withName(name)
+                                .withEmail(email)
+                                .withPassword(password)
+                                .build()
+                );
+            }
         } else {
-            System.out.println("User already exist \n");
+            System.out.println("User already exists \n");
             return 0;
         }
         return 0;
